@@ -38,7 +38,7 @@ A Chrome extension that adds releases from your Discogs ["New for me"](https://w
 
 ## Usage
 
-1. Go to your Discogs ["New for me"](https://www.discogs.com/search/?sort=nfm) search page
+1. Go to your Discogs ["New for me"](https://www.discogs.com/search/?sort=nfm&layout=sm) search page
 2. Click the extension icon
 3. Click **Add Current Page** to sync the visible releases, or **Add All Pages** to paginate through all results
 
