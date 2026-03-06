@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Setup Section -->
+  <div id="setup-section" class="section hidden">
+    <h2>Discogs → Spotify</h2>
+    <p>Create a <a href="https://developer.spotify.com/dashboard" target="_blank">Spotify app</a>, then paste your Client ID below.</p>
+    <div class="field">
+      <label for="client-id-input">Client ID</label>
+      <input type="text" id="client-id-input" placeholder="e.g. 481d6ac7362040d9...">
+    </div>
+    <button id="save-client-id-btn" class="btn btn-primary">Save</button>
+  </div>
+
+  <!-- Auth Section -->
+  <div id="auth-section" class="section hidden">
+    <h2>Discogs → Spotify</h2>
+    <p>Connect your Spotify account to get started.</p>
+    <button id="login-btn" class="btn btn-primary">Connect Spotify</button>
+    <button id="change-client-id-btn" class="btn btn-link">Change Client ID</button>
+  </div>
+
+  <!-- Config Section -->
+  <div id="config-section" class="section hidden">
+    <h2>Discogs → Spotify</h2>
+    <div class="field">
+      <label for="playlist-select">Target Playlist</label>
+      <select id="playlist-select"></select>
+    </div>
+    <button id="save-config-btn" class="btn btn-primary">Save</button>
+    <button id="logout-btn" class="btn btn-secondary">Disconnect</button>
+  </div>
+
+  <!-- Sync Section -->
+  <div id="sync-section" class="section hidden">
+    <h2>Discogs → Spotify</h2>
+    <p class="playlist-info">Playlist: <strong id="playlist-name"></strong></p>
+    <div class="btn-group">
+      <button id="sync-btn" class="btn btn-primary">Add Current Page</button>
+      <button id="sync-all-btn" class="btn btn-secondary">Add All Pages</button>
+    </div>
+    <button id="change-playlist-btn" class="btn btn-link">Change playlist</button>
+
+    <!-- Progress -->
+    <div id="progress" class="hidden">
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+      <p id="progress-text" class="progress-text"></p>
+    </div>
+
+    <!-- Results -->
+    <div id="results" class="hidden">
+      <div class="results-summary">
+        <span class="result-stat matched" id="matched-stat"></span>
+        <span class="result-stat skipped" id="skipped-stat"></span>
+        <span class="result-stat not-found" id="not-found-stat"></span>
+        <span class="result-stat tracks" id="tracks-stat"></span>
+      </div>
+      <div id="not-found-section" class="hidden">
+        <p class="not-found-header">Not found on Spotify:</p>
+        <ul id="not-found-list"></ul>
+      </div>
+    </div>
+
+    <!-- Sync Log -->
+    <div id="log-section">
+      <div class="log-header">
+        <span class="log-title">Sync Log</span>
+        <button id="clear-log-btn" class="btn btn-link btn-danger">Clear</button>
+      </div>
+      <div id="log-entries"></div>
+    </div>
+
+    <hr>
+    <div class="backup-section">
+      <span class="backup-label">Sync History Backup</span>
+      <div class="btn-group">
+        <button id="export-btn" class="btn btn-secondary">Export JSON</button>
+        <button id="import-btn" class="btn btn-secondary">Import JSON</button>
+      </div>
+      <input type="file" id="import-file-input" accept=".json" class="hidden">
+    </div>
+    <button id="clear-history-btn" class="btn btn-link btn-danger">Clear sync history</button>
+  </div>
+
+  <!-- Error display -->
+  <div id="error" class="error hidden"></div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>
